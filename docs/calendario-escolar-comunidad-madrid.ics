@@ -1,0 +1,1215 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//calendario-escolar-comunidad-madrid//github-actions//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Calendario Escolar Comunidad de Madrid
+X-WR-CALDESC:Calendario escolar oficial de la Comunidad de Madrid. Generado automaticamente desde EducaMadrid.
+X-WR-TIMEZONE:Europe/Madrid
+BEGIN:VEVENT
+UID:20260905-0-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20260905
+DTEND;VALUE=DATE:20260906
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260906-1-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20260906
+DTEND;VALUE=DATE:20260907
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260907-2-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20260907
+DTEND;VALUE=DATE:20260908
+SUMMARY:INICIO PERIODO LECTIVO PARA LOS ALUMNOS ENSEÑANZAS CORRESPONDIENTES
+DESCRIPTION:Centros Integrados de Enseñanzas Artísticas de Música y de Educación Primaria [7 de septiembre 2026]\nCentros de segundo ciclo de Educación Infantil\, Educación Primaria y Educación Especial [7 de septiembre 2026]\nEscuelas Infantiles\, Casas de Niños\, unidades de primer ciclo de Educación Infantil autorizadas en colegios públicos y Escuelas Infantiles privadas sostenidas con fondos públicos [7 de septiembre 2026]
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260908-3-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20260908
+DTEND;VALUE=DATE:20260909
+SUMMARY:INICIO PERIODO LECTIVO PARA LOS ALUMNOS ENSEÑANZAS CORRESPONDIENTES
+DESCRIPTION:Centros Integrados de Enseñanzas Artísticas de Música y de Educación Secundaria [8 de septiembre 2026]\nCentros de Educación Secundaria\, Bachillerato y Formación Profesional [8 de septiembre 2026]\nConservatorios Profesionales de Danza [8 de septiembre 2026]\nConservatorios Profesionales de Música [8 de septiembre 2026]\nEscuelas Oficiales de Idiomas [8 de septiembre 2026]
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260909-4-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20260909
+DTEND;VALUE=DATE:20260910
+SUMMARY:INICIO PERIODO LECTIVO PARA LOS ALUMNOS ENSEÑANZAS CORRESPONDIENTES
+DESCRIPTION:Centros de Enseñanzas Artísticas Superiores [9 de septiembre de 2026]\nEscuelas de Arte - 2º curso de los ciclos de Artes Plásticas y Diseño [9 de septiembre 2026]
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260912-5-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20260912
+DTEND;VALUE=DATE:20260913
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260913-6-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20260913
+DTEND;VALUE=DATE:20260914
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-7-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-8-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260921-9-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20260921
+DTEND;VALUE=DATE:20260922
+SUMMARY:INICIO PERIODO LECTIVO PARA LOS ALUMNOS ENSEÑANZAS CORRESPONDIENTES
+DESCRIPTION:Centros de Educación de Personas Adultas [21 de septiembre 2026]\nEscuelas de Arte - 1.er curso de los ciclos de Artes Plásticas y Diseño [21 de septiembre 2026]
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260926-10-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260927-11-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261003-12-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261004-13-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261010-14-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261011-15-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261012-16-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261012
+DTEND;VALUE=DATE:20261013
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261017-17-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261018-18-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261024-19-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261025-20-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261031-21-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261101-22-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261102-23-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261103
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261107-24-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261108-25-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261114-26-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261115-27-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261121-28-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261122-29-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261128-30-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261129-31-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261205-32-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261206-33-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261207-34-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261207
+DTEND;VALUE=DATE:20261208
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261208-35-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261208
+DTEND;VALUE=DATE:20261209
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261212-36-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261213-37-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261219-38-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261219
+DTEND;VALUE=DATE:20261220
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261220-39-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261223-40-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261223
+DTEND;VALUE=DATE:20261224
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261224-41-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261224
+DTEND;VALUE=DATE:20261225
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261225-42-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261226-43-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261226
+DTEND;VALUE=DATE:20261227
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261227-44-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261227
+DTEND;VALUE=DATE:20261228
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261228-45-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261228
+DTEND;VALUE=DATE:20261229
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261229-46-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261229
+DTEND;VALUE=DATE:20261230
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261230-47-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261230
+DTEND;VALUE=DATE:20261231
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261231-48-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270101-49-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270102-50-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270102
+DTEND;VALUE=DATE:20270103
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270103-51-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270104
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270104-52-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270104
+DTEND;VALUE=DATE:20270105
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270105-53-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270105
+DTEND;VALUE=DATE:20270106
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270106-54-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270107-55-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270107
+DTEND;VALUE=DATE:20270108
+SUMMARY:OTRO DIA NO LECTIVO
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270108-56-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270108
+DTEND;VALUE=DATE:20270109
+SUMMARY:OTRO DIA NO LECTIVO
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270109-57-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270110-58-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270116-59-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270117-60-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270117
+DTEND;VALUE=DATE:20270118
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270123-61-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270124-62-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270124
+DTEND;VALUE=DATE:20270125
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270130-63-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270131-64-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270206-65-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270207-66-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270207
+DTEND;VALUE=DATE:20270208
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270212-67-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270212
+DTEND;VALUE=DATE:20270213
+SUMMARY:OTRO DIA NO LECTIVO
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270213-68-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270213
+DTEND;VALUE=DATE:20270214
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270214-69-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270214
+DTEND;VALUE=DATE:20270215
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270215-70-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270216
+SUMMARY:OTRO DIA NO LECTIVO
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270220-71-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270221-72-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270221
+DTEND;VALUE=DATE:20270222
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270227-73-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270228-74-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270306-75-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270307-76-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270313-77-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270314-78-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270319-79-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270319
+DTEND;VALUE=DATE:20270320
+SUMMARY:OTRO DIA NO LECTIVO
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270320-80-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270321-81-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270322-82-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270322
+DTEND;VALUE=DATE:20270323
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270323-83-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270323
+DTEND;VALUE=DATE:20270324
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270324-84-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270324
+DTEND;VALUE=DATE:20270325
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270325-85-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270325
+DTEND;VALUE=DATE:20270326
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270326-86-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270327
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270327-87-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270327
+DTEND;VALUE=DATE:20270328
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270328-88-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270328
+DTEND;VALUE=DATE:20270328
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270329-89-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270329
+DTEND;VALUE=DATE:20270330
+SUMMARY:OTRO DIA NO LECTIVO
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270403-90-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270404-91-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270410-92-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270411-93-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270417-94-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270418-95-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270424-96-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270425-97-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270501-98-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270502-99-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270508-100-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270509-101-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270515-102-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270516-103-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270517
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270522-104-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270523-105-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270529-106-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270530-107-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270605-108-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270606-109-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270610-110-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270610
+DTEND;VALUE=DATE:20270611
+SUMMARY:EVALUACION FINAL ORDINARIA
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270611-111-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270611
+DTEND;VALUE=DATE:20270612
+SUMMARY:REPASO Y ACTIVIDADES FORMATIVAS
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270612-112-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270613-113-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270614-114-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270614
+DTEND;VALUE=DATE:20270615
+SUMMARY:REPASO Y ACTIVIDADES FORMATIVAS
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270615-115-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270615
+DTEND;VALUE=DATE:20270616
+SUMMARY:REPASO Y ACTIVIDADES FORMATIVAS
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270616-116-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270616
+DTEND;VALUE=DATE:20270617
+SUMMARY:REPASO Y ACTIVIDADES FORMATIVAS
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270617-117-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270617
+DTEND;VALUE=DATE:20270618
+SUMMARY:REPASO Y ACTIVIDADES FORMATIVAS
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270618-118-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270618
+DTEND;VALUE=DATE:20270619
+SUMMARY:FINALIZACIÓN PERIODO LECTIVO PARA LOS ALUMNOS ENSEÑANZAS CORRESPONDIENTES
+DESCRIPTION:Centros Integrados de Enseñanzas Artísticas de Música y de Educación Primaria [18 de junio 2027]\nCentros Integrados de Enseñanzas Artísticas de Música y de Educación Secundaria (excepto los alumnos de 2º curso de Bachillerato\, que finalizará sus actividades lectivas en función de las necesidades derivadas de la realización de la prueba de acceso a la Universidad y sus procedimientos de admisión) [18 de junio 2027]\nCentros de Educación Secundaria\, Bachillerato y Formación Profesional (excepto los alumnos de 2º curso de Bachillerato\, que finalizará sus actividades lectivas en función de las necesidades derivadas de la realización de la prueba de acceso a la Universidad y sus procedimientos de admisión) [18 de junio 2027]\nCentros de Educación de Personas Adultas [18 de junio 2027]\nCentros de Enseñanzas Artísticas Superiores [18 de junio 2027]\nCentros de segundo ciclo de Educación Infantil\, Educación Primaria y Educación Especial [18 de junio 2027]\nConservatorios Profesionales de Música y Conservatorios Profesionales de Danza (excepto los alumnos de 6º curso de enseñanzas profesionales\, que finalizará sus actividades lectivas en función de las necesidades derivadas de la prueba de acceso a la Universidad y sus procedimientos de admisión) [18 de junio 2027]\nEscuelas de Arte [18 de junio 2027]
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270619-119-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270620-120-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270625-121-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:FINALIZACIÓN PERIODO LECTIVO PARA LOS ALUMNOS ENSEÑANZAS CORRESPONDIENTES
+DESCRIPTION:Escuelas Oficiales de Idiomas [25 de junio 2027]
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270626-122-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270627-123-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270703-124-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270704-125-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270710-126-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270711-127-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270717-128-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270718-129-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270718
+DTEND;VALUE=DATE:20270719
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270724-130-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270724
+DTEND;VALUE=DATE:20270725
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270725-131-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270730-132-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270730
+DTEND;VALUE=DATE:20270731
+SUMMARY:FINALIZACIÓN PERIODO LECTIVO PARA LOS ALUMNOS ENSEÑANZAS CORRESPONDIENTES
+DESCRIPTION:Escuelas Infantiles\, Casas de Niños\, unidades de primer ciclo de Educación Infantil autorizadas en colegios públicos y Escuelas Infantiles privadas sostenidas con fondos públicos [30 de julio 2027]
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20270731-133-calendario-escolar-comunidad-madrid
+DTSTAMP:20260912T175612Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:DIA FESTIVO O VACACIONAL
+DESCRIPTION:Fuente oficial: https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

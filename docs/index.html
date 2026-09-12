@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Madrid - Días No Laborables (feed)</title>
+<title>Madrid - Calendarios (feeds)</title>
 <style>
   body { font-family: -apple-system, system-ui, sans-serif; max-width: 640px; margin: 3rem auto; padding: 0 1rem; line-height: 1.5; }
   code { background: #f0f0f0; padding: 0.15rem 0.4rem; border-radius: 4px; }
@@ -11,7 +11,7 @@
 </style>
 </head>
 <body>
-  <h1>Madrid — Días No Laborables</h1>
+  <h1>Madrid — Calendarios</h1>
   <p>Feed autogenerado de festivos oficiales de la ciudad de Madrid (nacional + autonómico de la Comunidad de Madrid + locales del Ayuntamiento), sincronizado periódicamente desde el <a href="https://datos.madrid.es/dataset/300082-0-calendario_laboral" target="_blank" rel="noopener">portal de datos abiertos del Ayuntamiento de Madrid</a>.</p>
 
   <p>
@@ -22,6 +22,14 @@
   <p>URL directa para suscripción manual en cualquier app de calendario:</p>
   <p><code>https://calendar.lemambo.com/madrid-festivos.ics</code></p>
 
-  <p>Este feed se actualiza automáticamente (GitHub Actions) el día 1 y el 15 de cada mes. Fuente oficial y licencia: Ayuntamiento de Madrid, CC BY 4.0.</p>
+  <h2>Calendario Escolar Comunidad de Madrid</h2>
+  <p>Calendario escolar oficial 2026-27 de la Comunidad de Madrid, con días festivos y no lectivos, evaluaciones, repasos y los inicios y finales de los periodos lectivos.</p>
+  <p>
+    <a class="button" href="webcal://calendar.lemambo.com/calendario-escolar-comunidad-madrid.ics">Suscribirse (Apple Calendar / iOS)</a>
+    <a class="button" href="https://calendar.lemambo.com/calendario-escolar-comunidad-madrid.ics">Descargar .ics</a>
+  </p>
+  <p><code>https://calendar.lemambo.com/calendario-escolar-comunidad-madrid.ics</code></p>
+
+  <p>Los feeds se actualizan automáticamente (GitHub Actions) el día 1 y el 15 de cada mes. Fuentes oficiales: Ayuntamiento de Madrid y EducaMadrid.</p>
 </body>
 </html>

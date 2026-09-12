@@ -1,4 +1,4 @@
-name: Update Madrid Holidays Feed
+name: Update Madrid Calendar Feeds
 
 on:
   schedule:
@@ -15,13 +15,15 @@ jobs:
       - name: Set up Swift
         uses: swift-actions/setup-swift@v2
 
-      - name: Run Build Script
-        run: swift src/main.swift
+      - name: Build calendar feeds
+        run: |
+          swift src/main.swift
+          swift src/school_calendar.swift
 
       - name: Commit and Push
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/madrid-festivos.ics
-          git diff --cached --quiet || git commit -m "Auto-update holidays feed"
+          git add docs/madrid-festivos.ics docs/calendario-escolar-comunidad-madrid.ics
+          git diff --cached --quiet || git commit -m "Auto-update calendar feeds"
           git push
