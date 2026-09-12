@@ -48,3 +48,8 @@ ICS resources, and writes `docs/madrid-festivos.ics`.
 [`src/school_calendar.swift`](src/school_calendar.swift) downloads and parses
 the official school-calendar page, then writes
 `docs/calendario-escolar-comunidad-madrid.ics`.
+
+The 2026-27 source page is preserved in
+[`resources/calendario-escolar-26-27.html`](resources/calendario-escolar-26-27.html)
+for future parser maintenance. The generator still uses the live EducaMadrid
+page when the workflow runs.
