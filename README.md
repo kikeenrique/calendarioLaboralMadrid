@@ -12,7 +12,7 @@ Almudena). No manual filtering needed.
 
 ## How it works
 
-- `fetch_and_build.py` calls the portal's CKAN `package_show` API to
+- `src/main.swift` calls the portal's CKAN `package_show` API to
   list the dataset's current resources, finds every ICS-format
   "solo festivos" resource (one per year), downloads each, and merges
   them into a single combined feed at `docs/madrid-festivos.ics`.
@@ -20,10 +20,9 @@ Almudena). No manual filtering needed.
   the portal assigns a new, non-sequential ID each year (e.g. 2024,
   2025, 2026 all have different IDs). Whatever years are published
   now get pulled in automatically.
-- A GitHub Actions workflow (`.github/workflows/update.yml`) runs this
-  on the 1st and 15th of each month (and on manual trigger), commits
-  the refreshed file if it changed, and GitHub Pages serves it as a
-  stable URL.
+- A GitHub Actions workflow (`.github/workflows/update.yml`) runs only
+  on the 1st and 15th of each month, commits the refreshed file if it
+  changed, and GitHub Pages serves it as a stable URL.
 
 ## Setup (one-time)
 
@@ -34,9 +33,9 @@ Almudena). No manual filtering needed.
    like `https://<your-username>.github.io/<repo-name>/`.
 4. Edit `docs/index.html` and replace `REPLACE_WITH_YOUR_GHPAGES_HOST`
    with `<your-username>.github.io/<repo-name>` in both links.
-5. (Optional) Trigger the workflow once manually: **Actions → Update
-   Madrid holidays feed → Run workflow**, so `docs/madrid-festivos.ics`
-   exists immediately instead of waiting for the next scheduled run.
+5. Run `swift src/main.swift` locally once if you want
+   `docs/madrid-festivos.ics` to exist before the next scheduled
+   GitHub Actions run.
 
 ## Subscribing from Apple Calendar / iOS
 
@@ -64,9 +63,9 @@ Ayuntamiento publishes them and the Action refreshes the feed.
   (the dataset page itself advertises the API). This script only
   calls the JSON API and the resource file URLs it returns — not the
   general website.
-- Runs a few times a month, well within any reasonable rate limit.
+- Runs twice a month, well within any reasonable rate limit.
 - If the Ayuntamiento ever renames resources or changes format away
-  from ICS for a given year, `fetch_and_build.py` will fail loudly
+  from ICS for a given year, `src/main.swift` will fail loudly
   (non-zero exit) rather than silently publishing a stale/incomplete
   feed — check the Actions log if a run fails.
 - Data license: CC BY 4.0, Ayuntamiento de Madrid.

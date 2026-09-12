@@ -1,0 +1,263 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//madrid-holidays-feed//github-actions//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Madrid - Dias No Laborables
+X-WR-CALDESC:Festivos oficiales de la ciudad de Madrid (nacional + autonomico Comunidad de Madrid + locales). Fuente: datos.madrid.es (Ayuntamiento de Madrid). Generado automaticamente.
+X-WR-TIMEZONE:Europe/Madrid
+X-PUBLISHED-TTL:P30D
+REFRESH-INTERVAL;VALUE=DURATION:P30D
+BEGIN:VEVENT
+UID:20250101-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20250101
+DTEND;VALUE=DATE:20250102
+SUMMARY:Año Nuevo
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20250106-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20250106
+DTEND;VALUE=DATE:20250107
+SUMMARY:Epifanía del Señor
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20250417-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20250417
+DTEND;VALUE=DATE:20250418
+SUMMARY:Jueves Santo
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20250418-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20250418
+DTEND;VALUE=DATE:20250419
+SUMMARY:Viernes Santo
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20250501-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20250501
+DTEND;VALUE=DATE:20250502
+SUMMARY:Fiesta del Trabajo
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20250502-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20250502
+DTEND;VALUE=DATE:20250503
+SUMMARY:Fiesta de la Comunidad de Madrid
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20250515-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20250515
+DTEND;VALUE=DATE:20250516
+SUMMARY:San Isidro Labrador
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20250725-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20250725
+DTEND;VALUE=DATE:20250726
+SUMMARY:Santiago Apóstol
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20250815-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20250815
+DTEND;VALUE=DATE:20250816
+SUMMARY:Asunción de la Virgen
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20251101-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20251101
+DTEND;VALUE=DATE:20251102
+SUMMARY:Todos los Santos
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20251110-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20251110
+DTEND;VALUE=DATE:20251111
+SUMMARY:Traslado de la festividad de Nuestra Señora de la Almudena
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20251206-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20251206
+DTEND;VALUE=DATE:20251207
+SUMMARY:Día de la Constitución Española
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20251208-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20251208
+DTEND;VALUE=DATE:20251209
+SUMMARY:Día de la Inmaculada Concepción
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20251225-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20251225
+DTEND;VALUE=DATE:20251226
+SUMMARY:Natividad del Señor
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260101-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20260101
+DTEND;VALUE=DATE:20260102
+SUMMARY:Año Nuevo
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260106-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20260106
+DTEND;VALUE=DATE:20260107
+SUMMARY:Epifanía del Señor
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260402-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20260402
+DTEND;VALUE=DATE:20260403
+SUMMARY:Jueves Santo
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260403-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20260403
+DTEND;VALUE=DATE:20260404
+SUMMARY:Jueves Santo
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260501-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20260501
+DTEND;VALUE=DATE:20260502
+SUMMARY:Fiesta del Trabajo
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260502-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20260502
+DTEND;VALUE=DATE:20260503
+SUMMARY:Fiesta de la Comunidad de Madrid
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260515-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20260515
+DTEND;VALUE=DATE:20260516
+SUMMARY:San Isidro Labrador
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20260815-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20260815
+DTEND;VALUE=DATE:20260816
+SUMMARY:Asunción de la Virgen
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261012-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20261012
+DTEND;VALUE=DATE:20261013
+SUMMARY:Fiesta Nacional de España
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261102-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261103
+SUMMARY:Traslado de Todos los Santos
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261109-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261110
+SUMMARY:Nuestra Señora de la Almudena
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261207-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20261207
+DTEND;VALUE=DATE:20261208
+SUMMARY:Traslado del día de la Constitución Española
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261208-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20261208
+DTEND;VALUE=DATE:20261209
+SUMMARY:Día de la Inmaculada Concepción
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:20261225-madrid-festivo@madrid-holidays-feed
+DTSTAMP:20260912T131952Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:Natividad del Señor
+DESCRIPTION:Fuente oficial: datos.madrid.es (Ayuntamiento de Madrid)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

@@ -12,16 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+      - name: Set up Swift
+        uses: swift-actions/setup-swift@v2
 
       - name: Run Build Script
-        run: python fetch_and_build.py
+        run: swift src/main.swift
 
       - name: Commit and Push
         run: |
