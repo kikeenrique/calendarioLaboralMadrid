@@ -38,7 +38,9 @@ licensed under CC BY 4.0. The school-calendar feed comes from EducaMadrid's
 [Calendario escolar 26-27](https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27).
 
 The GitHub Actions workflow runs on the 1st and 15th of every month. It fetches
-the currently published sources and refreshes both generated calendars.
+the currently published sources and refreshes both generated calendars. It can
+also be started by hand from the repository's Actions tab, or with
+`gh workflow run "Update Madrid Calendar Feeds"`.
 
 ## Implementation
 
