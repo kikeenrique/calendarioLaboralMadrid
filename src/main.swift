@@ -219,7 +219,10 @@ func dateFormatter() -> DateFormatter {
 }
 
 func buildCombinedICS(from holidays: [String: String]) -> String {
-    let calendar = Calendar(identifier: .gregorian)
+    // UTC, to match `dateFormatter()`: a system-zone calendar shifts the
+    // DTEND day arithmetic across DST transitions.
+    var calendar = Calendar(identifier: .gregorian)
+    calendar.timeZone = TimeZone(secondsFromGMT: 0) ?? calendar.timeZone
     let thisYear = calendar.component(.year, from: Date())
     let minYear = thisYear - keepYearsBack
     let stamp = utcTimestamp()

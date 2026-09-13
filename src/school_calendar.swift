@@ -106,6 +106,15 @@ func dateString(day: Int, monthName: String, year: Int) -> String? {
     return String(format: "%04d%02d%02d", year, monthNumber, day)
 }
 
+/// All dates in this feed are floating all-day values, so every calendar
+/// computation has to run in UTC to match `dateFormatter()`. A system-zone
+/// calendar would shift day arithmetic across DST transitions.
+func utcCalendar() -> Calendar {
+    var calendar = Calendar(identifier: .gregorian)
+    calendar.timeZone = TimeZone(secondsFromGMT: 0) ?? calendar.timeZone
+    return calendar
+}
+
 func request(for urlString: String) throws -> URLRequest {
     guard let url = URL(string: urlString) else {
         throw SchoolCalendarError.invalidURL(urlString)
@@ -241,7 +250,7 @@ func escapedICSValue(_ value: String) -> String {
 }
 
 func buildICS(events: [SchoolEvent]) -> String {
-    let calendar = Calendar(identifier: .gregorian)
+    let calendar = utcCalendar()
     let formatter = dateFormatter()
     let stamp = timestamp()
     var lines = [
