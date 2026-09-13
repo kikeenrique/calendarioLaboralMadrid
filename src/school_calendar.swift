@@ -115,6 +115,18 @@ func utcCalendar() -> Calendar {
     return calendar
 }
 
+/// Deterministic across processes, unlike `Hashable.hashValue`, which Swift
+/// seeds per run. UIDs must stay identical between runs or subscribers see
+/// every event torn down and recreated.
+func stableDigest(_ value: String) -> String {
+    var hash: UInt64 = 0xcbf2_9ce4_8422_2325
+    for byte in Array(value.utf8) {
+        hash ^= UInt64(byte)
+        hash = hash &* 0x0000_0100_0000_01b3
+    }
+    return String(hash, radix: 16)
+}
+
 func request(for urlString: String) throws -> URLRequest {
     guard let url = URL(string: urlString) else {
         throw SchoolCalendarError.invalidURL(urlString)
@@ -264,14 +276,14 @@ func buildICS(events: [SchoolEvent]) -> String {
         "X-WR-TIMEZONE:Europe/Madrid",
     ]
 
-    for (index, event) in events.enumerated() {
+    for event in events {
         guard let start = formatter.date(from: event.date),
               let end = calendar.date(byAdding: .day, value: 1, to: start) else {
             continue
         }
         lines.append(contentsOf: [
             "BEGIN:VEVENT",
-            "UID:\(event.date)-\(index)-calendario-escolar-comunidad-madrid",
+            "UID:\(event.date)-\(stableDigest(event.summary))-calendario-escolar-comunidad-madrid",
             "DTSTAMP:\(stamp)",
             "DTSTART;VALUE=DATE:\(event.date)",
             "DTEND;VALUE=DATE:\(formatter.string(from: end))",
