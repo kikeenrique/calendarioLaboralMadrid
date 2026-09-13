@@ -19,7 +19,9 @@ The generated file is also tracked at
 
 This feed covers the official 2026-27 school calendar published by EducaMadrid,
 including holidays, non-teaching days, ordinary final assessments, review days,
-and the start and end dates of each listed teaching period.
+and the start and end dates of each listed teaching period. Saturdays and
+Sundays are omitted: the source marks every weekend as a non-teaching day, which
+adds no information to a subscribed calendar.
 
 Subscribe with:
 

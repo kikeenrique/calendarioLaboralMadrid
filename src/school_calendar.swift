@@ -127,6 +127,15 @@ func stableDigest(_ value: String) -> String {
     return String(hash, radix: 16)
 }
 
+func isWeekend(_ date: String) -> Bool {
+    guard let parsed = dateFormatter().date(from: date) else {
+        return false
+    }
+
+    let weekday = utcCalendar().component(.weekday, from: parsed)
+    return weekday == 1 || weekday == 7
+}
+
 func request(for urlString: String) throws -> URLRequest {
     guard let url = URL(string: urlString) else {
         throw SchoolCalendarError.invalidURL(urlString)
@@ -172,6 +181,12 @@ func calendarTableEvents(from html: String) -> [SchoolEvent] {
 
             let value = plainText(from: cell[2])
             guard let day = Int(value), let date = dateString(day: day, monthName: monthName, year: year) else {
+                continue
+            }
+
+            // The source colours every Saturday and Sunday as a non-teaching day.
+            // Weekends are already understood to be non-school days, so skip them.
+            guard !isWeekend(date) else {
                 continue
             }
 
