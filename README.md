@@ -27,6 +27,8 @@ Both are also reachable over plain HTTPS
 [school](https://calendar.lemambo.com/calendario-escolar-comunidad-madrid.ics))
 and tracked in [`docs/`](docs/).
 
+Project status and what is left: [ROADMAP.md](ROADMAP.md).
+
 ## What's in the feeds
 
 The holiday feed combines national holidays, Comunidad de Madrid regional
@@ -46,14 +48,14 @@ open-data dataset](https://datos.madrid.es/dataset/300082-0-calendario_laboral),
 licensed under CC BY 4.0. The school feed comes from EducaMadrid's [Calendario
 escolar 26-27](https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27).
 
-The GitHub Actions workflow runs on the 1st and 15th of every month, fetches the
-currently published sources, and refreshes both calendars. It can also be started
-by hand from the repository's Actions tab, or with
-`gh workflow run "Update Madrid Calendar Feeds"`. Each feed is built in its own
-step, so a failure in one does not discard the other's refresh.
+The GitHub Actions workflow runs on the 1st and 15th of every month and refreshes
+both calendars. It can also be started by hand from the repository's Actions tab,
+or with `gh workflow run "Update Madrid Calendar Feeds"`. Each feed is built in
+its own step, so a failure in one does not discard the other's refresh.
 
-The school feed is **not** fetched. It is generated from the archived copy of the
-source page in `resources/`, refreshed by hand once per school year.
+The holiday feed is fetched live from the CKAN API on every run. The school feed
+is **not** fetched: it is generated from the archived copy of the source page in
+`resources/`, refreshed by hand once per school year.
 
 ### Why the school calendar is not fetched automatically
 
@@ -82,7 +84,7 @@ lifted.
 A Swift package. Run everything from the repository root:
 
 ```
-swift test                          # 21 tests, no network
+swift test                          # 30 tests, no network
 swift run GenerateHolidayFeed       # refresh docs/madrid-festivos.ics
 swift run GenerateSchoolFeed        # refresh the school feed from the archive
 swift run RefreshSchoolArchive      # check the live page (Spain only, see below)
