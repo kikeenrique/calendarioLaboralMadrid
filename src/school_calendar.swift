@@ -6,7 +6,8 @@ import FoundationNetworking
 enum SchoolCalendarError: Error, CustomStringConvertible {
     case invalidURL(String)
     case badStatus(Int)
-    case unreadablePage
+    case unreadableResponse
+    case unreadableArchive(String)
     case noEvents
 
     var description: String {
@@ -14,9 +15,11 @@ enum SchoolCalendarError: Error, CustomStringConvertible {
         case .invalidURL(let value):
             return "Invalid URL: \(value)"
         case .badStatus(let status):
-            return "The school calendar source returned HTTP \(status)."
-        case .unreadablePage:
-            return "The school calendar source could not be decoded as UTF-8."
+            return "HTTP \(status)"
+        case .unreadableResponse:
+            return "the response could not be decoded as UTF-8"
+        case .unreadableArchive(let path):
+            return "Could not read the archived school-calendar page at \(path)."
         case .noEvents:
             return "No school-calendar events were found in the source."
         }
@@ -57,6 +60,10 @@ struct SchoolEvent: Comparable {
 }
 
 let sourceURL = "https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27"
+/// Fallback for when the live page is unreachable. EducaMadrid answers 403 to
+/// GitHub's runners while serving 200 from a residential IP, so CI relies on
+/// this copy. See .github/workflows/diagnose-educamadrid.yml.
+let archivePath = "resources/calendario-escolar-26-27.html"
 let outputPath = "docs/calendario-escolar-comunidad-madrid.ics"
 let userAgent = "MadridCalendarFeeds/1.0 (+https://github.com/kikeenrique/calendarioLaboralMadrid)"
 // The source writes every label in caps and drops the accents that Spanish
@@ -168,27 +175,72 @@ func isWeekend(_ date: String) -> Bool {
     return weekday == 1 || weekday == 7
 }
 
-func request(for urlString: String) throws -> URLRequest {
-    guard let url = URL(string: urlString) else {
-        throw SchoolCalendarError.invalidURL(urlString)
+func fetchLive() async throws -> String {
+    guard let url = URL(string: sourceURL) else {
+        throw SchoolCalendarError.invalidURL(sourceURL)
     }
 
     var request = URLRequest(url: url, timeoutInterval: 30)
     request.setValue(userAgent, forHTTPHeaderField: "User-Agent")
-    request.setValue("text/html,application/xhtml+xml", forHTTPHeaderField: "Accept")
-    return request
-}
+    request.setValue("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", forHTTPHeaderField: "Accept")
+    request.setValue("es-ES,es;q=0.9,en;q=0.8", forHTTPHeaderField: "Accept-Language")
 
-func fetchSource() async throws -> String {
-    let (data, response) = try await URLSession.shared.data(for: request(for: sourceURL))
-    if let httpResponse = response as? HTTPURLResponse,
-       !(200..<300).contains(httpResponse.statusCode) {
-        throw SchoolCalendarError.badStatus(httpResponse.statusCode)
+    let (data, response) = try await URLSession.shared.data(for: request)
+    guard let status = (response as? HTTPURLResponse)?.statusCode else {
+        throw SchoolCalendarError.unreadableResponse
+    }
+    guard (200..<300).contains(status) else {
+        throw SchoolCalendarError.badStatus(status)
     }
     guard let html = String(data: data, encoding: .utf8) else {
-        throw SchoolCalendarError.unreadablePage
+        throw SchoolCalendarError.unreadableResponse
     }
     return html
+}
+
+func readArchive() throws -> String {
+    guard let html = try? String(contentsOfFile: archivePath, encoding: .utf8) else {
+        throw SchoolCalendarError.unreadableArchive(archivePath)
+    }
+    return html
+}
+
+struct LoadedSource {
+    let html: String
+    let isLive: Bool
+}
+
+/// Prefers the live page and falls back to the archived copy, so a run from a
+/// blocked IP still produces a feed.
+func loadSource() async -> LoadedSource {
+    print("Trying live source: \(sourceURL)")
+
+    do {
+        let html = try await fetchLive()
+        print("Live fetch succeeded (\(html.count) characters).")
+        return LoadedSource(html: html, isLive: true)
+    } catch {
+        print("::warning title=EducaMadrid unreachable::Live fetch failed (\(error)). Falling back to \(archivePath).")
+        return LoadedSource(html: "", isLive: false)
+    }
+}
+
+/// Compares what the live page *parses to* against the archive, rather than the
+/// raw markup: Liferay varies roughly 60 bytes of page chrome between requests,
+/// so a byte comparison would warn on every run. A difference here is real - the
+/// published calendar changed and the archive needs refreshing.
+func warnIfDrifted(from liveEvents: [SchoolEvent]) {
+    guard let archived = try? readArchive(),
+          let archivedEvents = try? sourceEvents(from: archived) else {
+        print("::warning title=Archive unreadable::Could not compare the live page against \(archivePath).")
+        return
+    }
+
+    if archivedEvents == liveEvents {
+        print("Live page parses identically to \(archivePath).")
+    } else {
+        print("::warning title=School calendar source changed::Live page now parses to \(liveEvents.count) events, archive has \(archivedEvents.count). Re-archive \(archivePath).")
+    }
 }
 
 func calendarTableEvents(from html: String) -> [SchoolEvent] {
@@ -357,9 +409,16 @@ func writeFeed(_ contents: String) throws {
 
 Task {
     do {
-        let events = try sourceEvents(from: try await fetchSource())
+        let source = await loadSource()
+        let html = source.isLive ? source.html : try readArchive()
+        let events = try sourceEvents(from: html)
+
+        if source.isLive {
+            warnIfDrifted(from: events)
+        }
+
         try writeFeed(buildICS(events: events))
-        print("Wrote \(outputPath) with \(events.count) events.")
+        print("Wrote \(outputPath) with \(events.count) events (source: \(source.isLive ? "live" : "archive")).")
         exit(0)
     } catch {
         fputs("ERROR: \(error)\n", stderr)

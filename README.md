@@ -51,14 +51,19 @@ currently published sources, and refreshes both calendars. It can also be starte
 by hand from the repository's Actions tab, or with
 `gh workflow run "Update Madrid Calendar Feeds"`.
 
+The school feed falls back to the archived copy in `resources/` when the live
+fetch fails: EducaMadrid answers HTTP 403 to GitHub's runners while serving the
+page normally from a residential IP. When the live fetch does succeed, the run
+compares it against the archive and warns if the published calendar has changed.
+
 ## Implementation
 
 [`src/main.swift`](src/main.swift) queries the CKAN API, selects the holiday ICS
 resources, and writes `docs/madrid-festivos.ics`.
 
-[`src/school_calendar.swift`](src/school_calendar.swift) downloads and parses the
-official school-calendar page, then writes
-`docs/calendario-escolar-comunidad-madrid.ics`.
+[`src/school_calendar.swift`](src/school_calendar.swift) parses the
+school-calendar page - live when reachable, otherwise the archived copy - and
+writes `docs/calendario-escolar-comunidad-madrid.ics`.
 
 Event UIDs are built from the date plus an internal identifier, never from the
 displayed title, so rewording a title does not force subscribers' calendar apps
@@ -66,5 +71,6 @@ to delete and recreate every event.
 
 The 2026-27 source page is preserved in
 [`resources/calendario-escolar-26-27.html`](resources/calendario-escolar-26-27.html)
-for future parser maintenance. The generator still uses the live EducaMadrid page
-when the workflow runs.
+and is the fallback when the live page cannot be fetched. When the 2027-28
+calendar is published, archive the new page there and update `archivePath` and
+`sourceURL` in [`src/school_calendar.swift`](src/school_calendar.swift).
