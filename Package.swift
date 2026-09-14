@@ -22,6 +22,7 @@ let package = Package(
         // it, so refreshing the archive is a thing you run on your own machine.
         .executableTarget(name: "RefreshSchoolArchive", dependencies: ["SchoolCalendar"]),
 
+        .testTarget(name: "CalendarFeedCoreTests", dependencies: ["CalendarFeedCore"]),
         .testTarget(name: "SchoolCalendarTests", dependencies: ["SchoolCalendar", "CalendarFeedCore"]),
         .testTarget(name: "HolidayCalendarTests", dependencies: ["HolidayCalendar", "CalendarFeedCore"]),
     ]

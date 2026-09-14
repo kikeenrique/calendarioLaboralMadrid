@@ -117,8 +117,10 @@ public enum SchoolCalendar {
         "septiembre": 9, "octubre": 10, "noviembre": 11, "diciembre": 12,
     ]
 
-    public static func writeFeed(_ contents: String, to path: String = outputPath) throws {
-        try ICS.write(contents, to: path)
+    /// Returns whether the feed actually changed; see `ICS.writeIfChanged`.
+    @discardableResult
+    public static func writeFeed(_ contents: String, to path: String = outputPath) throws -> Bool {
+        try ICS.writeIfChanged(contents, to: path)
     }
 
     public static func readArchive(at path: String = archivePath) throws -> String {

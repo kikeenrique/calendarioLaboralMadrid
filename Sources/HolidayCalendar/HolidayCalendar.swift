@@ -63,8 +63,10 @@ public enum HolidayCalendar {
     public static let userAgent =
         "MadridCalendarFeeds/1.0 (+https://github.com/kikeenrique/calendarioLaboralMadrid; auto-updating .ics mirror of datos.madrid.es open data)"
 
-    public static func writeFeed(_ contents: String, to path: String = outputPath) throws {
-        try ICS.write(contents, to: path)
+    /// Returns whether the feed actually changed; see `ICS.writeIfChanged`.
+    @discardableResult
+    public static func writeFeed(_ contents: String, to path: String = outputPath) throws -> Bool {
+        try ICS.writeIfChanged(contents, to: path)
     }
 
     // MARK: - Pure parsing

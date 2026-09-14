@@ -102,6 +102,12 @@ generators do, against the real archived page rather than a synthetic fixture.
 No mocking is involved. CI runs `swift test` before generating anything, so a
 broken parser cannot publish a truncated feed.
 
+A feed is rewritten only when its calendar content actually changed. `DTSTAMP` is
+regenerated on every run, so writing unconditionally rewrote every event line and
+produced a commit on each scheduled run even when nothing had moved. Keeping the
+previous stamp also matches RFC 5545, where `DTSTAMP` records when the object was
+last revised.
+
 ### Refreshing the archive locally
 
 CI cannot reach EducaMadrid, but a Spanish connection can, so checking for

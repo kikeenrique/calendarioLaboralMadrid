@@ -9,13 +9,17 @@ import HolidayCalendar
 do {
     let holidays = try await HolidayCalendar.fetchAllHolidays()
     let ics = HolidayCalendar.buildICS(from: holidays)
-    try HolidayCalendar.writeFeed(ics)
+    let changed = try HolidayCalendar.writeFeed(ics)
 
-    // Count what was actually written, not what was fetched: the retention
-    // window drops holidays older than keepYearsBack.
-    let written = ics.components(separatedBy: "BEGIN:VEVENT").count - 1
+    // Count what is in the feed, not what was fetched: the retention window
+    // drops holidays older than keepYearsBack.
+    let count = ics.components(separatedBy: "BEGIN:VEVENT").count - 1
     print("")
-    print("Wrote \(HolidayCalendar.outputPath) with \(written) events (\(holidays.count) fetched).")
+    if changed {
+        print("Wrote \(HolidayCalendar.outputPath) with \(count) events (\(holidays.count) fetched).")
+    } else {
+        print("\(HolidayCalendar.outputPath) is already up to date (\(count) events); left untouched.")
+    }
 } catch {
     FileHandle.standardError.write(Data("ERROR: \(error)\n".utf8))
     exit(1)

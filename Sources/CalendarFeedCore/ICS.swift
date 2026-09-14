@@ -71,6 +71,32 @@ public enum ICS {
         lines.joined(separator: "\r\n") + "\r\n"
     }
 
+    /// The feed with its DTSTAMP lines removed, for comparing two generations
+    /// by content alone.
+    static func ignoringTimestamps(_ ics: String) -> String {
+        ics.components(separatedBy: "\r\n")
+            .filter { !$0.hasPrefix("DTSTAMP:") }
+            .joined(separator: "\r\n")
+    }
+
+    /// Writes only when the calendar content actually differs from what is on
+    /// disk, ignoring DTSTAMP. Returns whether anything was written.
+    ///
+    /// Every run regenerates DTSTAMP, so an unconditional write rewrote every
+    /// event line and produced a commit on each scheduled run even when no
+    /// holiday had moved. Keeping the old stamp is also the more correct
+    /// reading of RFC 5545: DTSTAMP marks when the object was last revised, and
+    /// an unchanged calendar has not been revised.
+    @discardableResult
+    public static func writeIfChanged(_ contents: String, to path: String) throws -> Bool {
+        if let existing = try? String(contentsOfFile: path, encoding: .utf8),
+           ignoringTimestamps(existing) == ignoringTimestamps(contents) {
+            return false
+        }
+        try write(contents, to: path)
+        return true
+    }
+
     public static func write(_ contents: String, to path: String) throws {
         // URL rather than `path as NSString`: String-to-NSString bridging is an
         // Objective-C runtime feature and is not available on Linux, where this
