@@ -1,0 +1,120 @@
+name: Check for next school year
+
+# The school feed is pinned to one school year: src/school_calendar.swift points
+# at .../calendario-escolar-26-27, and the 2027-28 calendar will be published at
+# a different URL. Nothing about that is self-healing, so this job watches the
+# Comunidad de Madrid listing page and FAILS ON PURPOSE when a newer calendar
+# appears. A red run here is the reminder to archive the new page and re-point
+# the generator - it does not mean anything is broken.
+#
+# ALGORITHM
+#
+#   1. Read the tracked year.
+#      Grep src/school_calendar.swift for the first `calendario-escolar-NN-NN`
+#      slug and keep the `NN-NN` part -> TRACKED (e.g. "26-27").
+#      The generator is the single source of truth: nothing here is hardcoded,
+#      so re-pointing the generator at a new year also disarms this alarm.
+#      No slug found -> fail (the check has lost its reference point).
+#
+#   2. Fetch the listing page (comunidad.madrid/educacion/calendario-escolar).
+#      Not HTTP 200 -> fail as "alarm is blind".
+#
+#   3. Extract candidates.
+#      Grep the page for every `calendario-escolar-NN-NN` slug, keep the `NN-NN`
+#      parts, deduplicate -> FOUND. The page links each calendar by slug, so
+#      this reads the same identifier the generator consumes rather than loose
+#      prose like "2027/2028", which is why it needs no edits for future years.
+#      Nothing matched -> fail as "alarm is blind" (page layout changed).
+#
+#   4. Compare.
+#      For each entry in FOUND, take the starting year (`27` of `27-28`) and
+#      compare numerically against the starting year of TRACKED.
+#      Any candidate strictly greater -> a newer calendar exists.
+#
+#   5. Report.
+#      Newer found -> fail, naming the year and the two values to update.
+#      Otherwise   -> pass, having confirmed the pin is still current.
+#
+# OUTCOMES
+#
+#   pass            the tracked year is still the newest published
+#   fail "New school calendar published"   time to re-archive and re-point
+#   fail "Alarm is blind"                  page unreachable or layout changed;
+#                                          the check can no longer see new years
+#
+# Failing on a blind alarm is deliberate: a check that silently stops watching
+# is worse than one that is noisy, and the sibling EducaMadrid host already
+# blocks GitHub runners, so this page plausibly could too.
+#
+# NOTES
+#
+#   - Comparison is on the two-digit starting year via `[ -gt ]`, which parses
+#     decimally, so a historical `08-09` link on the page compares correctly and
+#     does not trip the octal trap that `$(( 08 ))` would.
+#   - Two-digit years mean the comparison would not survive a century rollover
+#     (tracking `99-00`, a new `00-01` would not read as newer). Irrelevant for
+#     the lifetime of this repository, noted so it is not mistaken for a bug.
+
+on:
+  schedule:
+    # Monthly. New school calendars are typically published in spring.
+    - cron: "0 6 1 * *"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Look for a newer calendar
+        run: |
+          set -uo pipefail
+          LISTING="https://www.comunidad.madrid/educacion/calendario-escolar"
+
+          # Single source of truth: whatever year the generator is pinned to.
+          TRACKED=$(grep -oE 'calendario-escolar-[0-9]{2}-[0-9]{2}' src/school_calendar.swift \
+                    | head -1 | grep -oE '[0-9]{2}-[0-9]{2}')
+          if [ -z "$TRACKED" ]; then
+            echo "::error::Could not read the tracked school year from src/school_calendar.swift."
+            exit 1
+          fi
+          echo "Tracked school year: $TRACKED"
+
+          STATUS=$(curl -s -o listing.html -w '%{http_code}' --max-time 30 \
+                   -H "Accept: text/html,application/xhtml+xml" "$LISTING")
+          echo "Listing page: HTTP $STATUS ($(wc -c < listing.html) bytes)"
+
+          if [ "$STATUS" != "200" ]; then
+            # Failing here too: a blind alarm is worth knowing about, and the
+            # sibling EducaMadrid host already blocks runners.
+            echo "::error title=Alarm is blind::Could not read $LISTING (HTTP $STATUS). This check cannot see new calendars until that is fixed."
+            exit 1
+          fi
+
+          FOUND=$(grep -oE 'calendario-escolar-[0-9]{2}-[0-9]{2}' listing.html \
+                  | grep -oE '[0-9]{2}-[0-9]{2}' | sort -u)
+          echo "Calendar links on the listing page:"
+          echo "${FOUND:-  (none)}" | sed 's/^/  /'
+
+          if [ -z "$FOUND" ]; then
+            echo "::error title=Alarm is blind::No calendar links matched on $LISTING. The page layout probably changed, so this check can no longer detect a new calendar."
+            exit 1
+          fi
+
+          # Compare on the starting year: 27-28 is newer than 26-27.
+          TRACKED_START=${TRACKED%%-*}
+          NEWER=""
+          for year in $FOUND; do
+            start=${year%%-*}
+            if [ "$start" -gt "$TRACKED_START" ]; then
+              NEWER="$NEWER $year"
+            fi
+          done
+
+          if [ -n "$NEWER" ]; then
+            echo "::error title=New school calendar published::Found${NEWER} on the listing page while the generator still tracks ${TRACKED}. Archive the new page into resources/, then update archivePath and sourceURL in src/school_calendar.swift."
+            exit 1
+          fi
+
+          echo "No calendar newer than $TRACKED. Nothing to do."

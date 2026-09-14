@@ -79,3 +79,11 @@ The 2026-27 source page is preserved in
 and is the fallback when the live page cannot be fetched. When the 2027-28
 calendar is published, archive the new page there and update `archivePath` and
 `sourceURL` in [`src/school_calendar.swift`](src/school_calendar.swift).
+
+You do not have to remember to check. The
+[`Check for next school year`](.github/workflows/check-next-school-year.yml)
+workflow runs monthly, watches the Comunidad de Madrid [calendar listing
+page](https://www.comunidad.madrid/educacion/calendario-escolar), and **fails on
+purpose** when it finds a calendar newer than the one the generator tracks. A red
+run there is a reminder to re-archive, not a breakage. It also fails if the
+listing becomes unreadable, since a silent alarm is worse than a noisy one.
