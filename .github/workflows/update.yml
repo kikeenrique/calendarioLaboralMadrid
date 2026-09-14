@@ -17,12 +17,18 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - name: Set up Swift
-        uses: swift-actions/setup-swift@v2
-        with:
-          # Pinned so CI does not silently move toolchain. The package declares
-          # swift-tools-version 6.0 and the tests use Swift Testing, which needs 6.x.
-          swift-version: "6.0"
+      # Swift comes preinstalled on the runner image, so no setup action is
+      # needed. swift-actions/setup-swift was dropped because every released
+      # version - including the v3 beta - still declares node20, which GitHub
+      # removes from runners on 2026-09-23.
+      #
+      # This means the toolchain follows the runner image rather than a pin. That
+      # is acceptable here: Package.swift only requires tools 6.0, and the tests
+      # below run before anything is generated, so a toolchain change shows up as
+      # a test failure rather than a bad published feed. The version is logged on
+      # every run so it is always clear what built the feeds.
+      - name: Show Swift version
+        run: swift --version
 
       # Before generating anything: a broken parser must not publish a truncated
       # feed to subscribers.

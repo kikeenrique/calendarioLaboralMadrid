@@ -1,6 +1,8 @@
 # Roadmap
 
-State of the project and what is left. See [README](README.md) for how it works.
+State of the project and what is left. See
+[IMPLEMENTATION.md](IMPLEMENTATION.md) for how it works and
+[SOURCES.md](SOURCES.md) for where the data comes from.
 
 ## Done
 
@@ -53,8 +55,10 @@ State of the project and what is left. See [README](README.md) for how it works.
 - **The two feeds build in separate steps.** A single step meant one failure threw
   away the other feed's output before the commit step ran - which is exactly what
   happened on the first real run.
-- **`actions/checkout` v4 → v7.** `swift-actions/setup-swift` stays on v2 (v2.4.0
-  is the latest stable; v3 is a beta) and is now pinned to Swift 6.0.
+- **`actions/checkout` v4 → v7.** `swift-actions/setup-swift` was removed
+  entirely: every released version including the v3 beta still declares `node20`,
+  which GitHub removes from runners on 2026-09-23. Swift is preinstalled on the
+  runner image, so CI uses that and logs the version on each run.
 - **Next-school-year alarm.** `check-next-school-year.yml` watches the Comunidad
   de Madrid listing page monthly and fails on purpose when a newer calendar
   appears. It reads the tracked year from the generator, so re-pointing the
@@ -98,7 +102,7 @@ State of the project and what is left. See [README](README.md) for how it works.
 ### Recurring, once a year
 
 - **Re-archive the new school calendar.** The alarm will tell you. Steps are in
-  [`resources/README.md`](resources/README.md).
+  [`SOURCES.md`](SOURCES.md).
 
 ## Explicitly not doing
 
