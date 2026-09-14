@@ -75,6 +75,18 @@ and `Tests/**`, with a `spm-swift6.3-` prefix as a restore key so an older cache
 can seed an incremental rebuild. There are no external dependencies and no
 `Package.resolved`, so the cache holds compiled output only.
 
+Do not expect the cache to help scheduled runs. Measured on a cold run: pulling
+the image takes about 38s and the whole build 10s, so the cache can only ever
+save that 10s - and GitHub evicts cache entries that have not been accessed in 7
+days, while this job runs fortnightly. Scheduled runs will therefore usually find
+it cold. It earns its keep while iterating, when several runs happen close
+together. The image pull, not the build, is what dominates a run.
+
+Note that the cache key encodes only the minor Swift version. `swift:6.3` is a
+floating tag, so a 6.3.x patch release changes the compiler without changing the
+key; SPM normally detects that and rebuilds. Pinning `swift:6.3.3` in both the
+`container:` and the key would make the two airtight together.
+
 Local development uses whatever Xcode provides, currently newer than the
 container. If that difference ever matters, CI fails and the failure is reviewed.
 

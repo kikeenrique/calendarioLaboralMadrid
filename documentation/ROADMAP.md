@@ -37,7 +37,7 @@ State of the project and what is left. See
 - **Converted to a Swift package** with library targets and thin executables.
   The two scripts had duplicated helpers and colliding global names (`request`,
   `dateFormatter`, `userAgent`, `outputPath` existed in both).
-- **30 tests, no mocking.** Parsing and generation are pure, so the tests run the
+- **35 tests, no mocking.** Parsing and generation are pure, so the tests run the
   same code the generators do against the real archived page.
 - **Sanity floor.** `noEvents` only caught total failure; a single changed cell
   colour would have silently dropped a whole category while the run stayed green.
@@ -55,11 +55,16 @@ State of the project and what is left. See
 - **The two feeds build in separate steps.** A single step meant one failure threw
   away the other feed's output before the commit step ran - which is exactly what
   happened on the first real run.
-- **`actions/checkout` v4 → v7.** `swift-actions/setup-swift` was removed
+- **`actions/checkout` v4 → v7**, and `swift-actions/setup-swift` removed
   entirely: every released version including the v3 beta still declares `node20`,
-  which GitHub removes from runners on 2026-09-23. The job now runs in the
-  official `swift:6.3` container, which pins the toolchain instead of floating
-  with the runner image, and caches `.build` with `actions/cache`.
+  which GitHub removes from runners on 2026-09-23. CI emits no warnings now.
+- **CI runs in the official `swift:6.3` container** instead of a setup action, so
+  the toolchain is pinned rather than floating with the runner image, and
+  `.build` is cached with `actions/cache`. Measured: the image pull (38s)
+  dominates, the build is 10s, so the cache is a modest win - and GitHub evicts
+  caches unused for 7 days while this job runs fortnightly, so scheduled runs
+  will usually find it cold. It earns its keep during development bursts, not on
+  the schedule. Do not expect otherwise and do not "fix" it.
 - **Next-school-year alarm.** `check-next-school-year.yml` watches the Comunidad
   de Madrid listing page monthly and fails on purpose when a newer calendar
   appears. It reads the tracked year from the generator, so re-pointing the
@@ -87,6 +92,15 @@ State of the project and what is left. See
 - **`RefreshSchoolArchive`** replaces the live check for the machine that *can*
   reach the source: your own.
 
+### Documentation
+
+- **README reduced to what a subscriber needs.** It had grown to cover
+  subscribing, sources, a 403 investigation, the package layout and design
+  decisions. Everything technical moved to `documentation/`, linked from the
+  README: [`SOURCES.md`](SOURCES.md), [`IMPLEMENTATION.md`](IMPLEMENTATION.md)
+  and this file. `resources/README.md` points at `SOURCES.md` rather than
+  repeating it.
+
 ## Pending
 
 ### Small
@@ -94,11 +108,6 @@ State of the project and what is left. See
 - **`docs/index.html` duplicates prose from the README** and is maintained by
   hand. The year is now guarded by tests, so what is left is ordinary
   duplication, not a correctness risk.
-
-- **Period label wording.** "Inicio periodo lectivo para los alumnos enseñanzas
-  correspondientes" is missing prepositions. It is the source's own phrasing, so
-  it was left alone, but titles no longer affect UIDs - this is a one-line change
-  with no churn.
 
 ### Recurring, once a year
 
@@ -119,3 +128,8 @@ State of the project and what is left. See
   subscription. A self-hosted runner would work but this repository is public, and
   fork pull requests can execute code on a self-hosted runner.
 - **DocC.** No public API and no consumers; it would be upkeep nobody reads.
+- **Rewording the period labels.** "Inicio periodo lectivo para los alumnos
+  enseñanzas correspondientes" is missing prepositions, but it is the source's
+  own phrasing and the feed should echo it. Considered and declined.
+- **swiftly.** Nothing in the repository requires it - there is no
+  `.swift-version` or `.tool-versions`. Local builds use whatever Xcode provides.
