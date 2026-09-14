@@ -58,8 +58,11 @@ page normally from a residential IP. When the live fetch does succeed, the run
 compares it against the archive and warns if the published calendar has changed.
 
 A separate [`Diagnose EducaMadrid 403`](.github/workflows/diagnose-educamadrid.yml)
-workflow probes the source from a runner to identify what is rejecting the
-request. Run it by hand from the Actions tab.
+workflow probes the source from a runner. It has already been run: the block is
+address-based, and no user agent, header set, referer, cookie or HTTP version
+gets through - nor does `external.educa2.madrid.org`, EducaMadrid's documented
+host for access from outside Spain. The findings are recorded at the top of that
+workflow; re-run it only to check whether the block has lifted.
 
 ## Implementation
 

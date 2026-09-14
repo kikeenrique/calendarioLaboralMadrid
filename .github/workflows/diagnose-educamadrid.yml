@@ -5,13 +5,32 @@ name: Diagnose EducaMadrid 403
 # is rejecting us: the host, the path, the client headers, or the IP itself.
 # Keep the probe count low - this hits a public government site.
 #
-# The first run established that the 403 is identical for every User-Agent,
-# header set and HTTP version, with a stock Apache body and no WAF branding -
-# so it is address-based, not client-based. EducaMadrid documents that it blocks
-# access from outside Spain and offers external.educa2.madrid.org for users
-# abroad, which matches: the runner was in Phoenix, US. That host serves
-# byte-identical calendar tables when checked from Spain; this workflow now
-# probes it from a runner to confirm it is reachable from outside.
+# FINDINGS (runs of 2026-09-14, runner in Phoenix, Arizona, AS8075 Microsoft)
+#
+#   root path                   301  -> host itself is reachable
+#   target path, script UA      403
+#   target path, browser UA     403
+#   target path, no UA          403
+#   target path, full browser headers  403
+#   target path, HTTP/1.1       403
+#   target path, same-site Referer     403
+#   target path, cookies from root     403
+#   external.educa2.madrid.org  403  (199-byte body, not 389)
+#
+# Every www probe returned a byte-identical 389-byte stock Apache 403 with no
+# WAF branding, so the rejection is address-based: no User-Agent, header set,
+# Referer, cookie or HTTP version changes it.
+#
+# external.educa2.madrid.org is EducaMadrid's documented route for access from
+# outside Spain, so it looked like the answer. It is not: from a runner it also
+# returns 403, with a shorter body from a differently configured vhost but the
+# same TL_193.146.123.83 load-balancer cookie, i.e. the same infrastructure. It
+# presumably serves authenticated users abroad rather than anonymous datacenter
+# traffic.
+#
+# CONCLUSION: this source cannot be fetched from GitHub-hosted runners, and no
+# client-side tweak will change that. The generator relies on the archived copy
+# in resources/; re-run this workflow only if you suspect the block has lifted.
 
 on:
   workflow_dispatch:
@@ -99,6 +118,5 @@ jobs:
           echo "all 403 regardless            -> IP reputation; needs a different"
           echo "                                 egress or the archived copy"
           echo ""
-          echo "Known: EducaMadrid blocks access from outside Spain and publishes"
-          echo "external.educa2.madrid.org for that case. GitHub runners are not"
-          echo "in Spain, so the EXTERNAL probe is the one that matters most."
+          echo "As of 2026-09-14 every probe above returns 403, including the"
+          echo "external host. See the FINDINGS block at the top of this file."
