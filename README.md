@@ -79,12 +79,43 @@ lifted.
 
 ## Implementation
 
-[`src/main.swift`](src/main.swift) queries the CKAN API, selects the holiday ICS
-resources, and writes `docs/madrid-festivos.ics`.
+A Swift package. Run everything from the repository root:
 
-[`src/school_calendar.swift`](src/school_calendar.swift) parses the archived
-school-calendar page and writes
-`docs/calendario-escolar-comunidad-madrid.ics`. It does no networking at all.
+```
+swift test                          # 21 tests, no network
+swift run GenerateHolidayFeed       # refresh docs/madrid-festivos.ics
+swift run GenerateSchoolFeed        # refresh the school feed from the archive
+swift run RefreshSchoolArchive      # check the live page (Spain only, see below)
+```
+
+| Target | What it is |
+| --- | --- |
+| `CalendarFeedCore` | Shared iCalendar plumbing: UTC dates, escaping, stable UIDs |
+| `HolidayCalendar` | CKAN fetching plus pure ICS parsing and generation |
+| `SchoolCalendar` | Pure parsing of the archived page. No networking at all |
+| `GenerateHolidayFeed` | Writes `docs/madrid-festivos.ics` |
+| `GenerateSchoolFeed` | Writes `docs/calendario-escolar-comunidad-madrid.ics` |
+| `RefreshSchoolArchive` | Local-only tool to update `resources/` when the source changes |
+
+Parsing and generation are pure functions, so the tests run the same code the
+generators do, against the real archived page rather than a synthetic fixture.
+No mocking is involved. CI runs `swift test` before generating anything, so a
+broken parser cannot publish a truncated feed.
+
+### Refreshing the archive locally
+
+CI cannot reach EducaMadrid, but a Spanish connection can, so checking for
+changes is a local job:
+
+```
+swift run RefreshSchoolArchive           # fetch, compare, report; changes nothing
+swift run RefreshSchoolArchive --write   # update resources/ and regenerate the feed
+```
+
+It compares the live page against the archive by **parsed events**, not raw
+bytes - Liferay varies about 60 bytes of page chrome between requests, so a byte
+comparison reports a difference every time. It exits 0 when nothing changed, 2
+when something did, and prints exactly which events were added or removed.
 
 Event UIDs are built from the date plus an internal identifier, never from the
 displayed title, so rewording a title does not force subscribers' calendar apps
@@ -94,8 +125,9 @@ The 2026-27 source page is preserved in
 [`resources/calendario-escolar-26-27.html`](resources/calendario-escolar-26-27.html)
 and is the source the feed is built from. When the 2027-28 calendar is published,
 save the new page there and update `archivePath` and `sourceURL` in
-[`src/school_calendar.swift`](src/school_calendar.swift). Saving it has to be done
-from a Spanish connection, for the reason described above.
+[`Sources/SchoolCalendar/SchoolCalendar.swift`](Sources/SchoolCalendar/SchoolCalendar.swift).
+Saving it has to be done from a Spanish connection, for the reason described
+above - `swift run RefreshSchoolArchive --write` does it for you.
 
 You do not have to remember to check. The
 [`Check for next school year`](.github/workflows/check-next-school-year.yml)

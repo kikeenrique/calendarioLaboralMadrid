@@ -1,6 +1,6 @@
 name: Check for next school year
 
-# The school feed is pinned to one school year: src/school_calendar.swift points
+# The school feed is pinned to one school year: Sources/SchoolCalendar/SchoolCalendar.swift points
 # at .../calendario-escolar-26-27, and the 2027-28 calendar will be published at
 # a different URL. Nothing about that is self-healing, so this job watches the
 # Comunidad de Madrid listing page and FAILS ON PURPOSE when a newer calendar
@@ -10,7 +10,7 @@ name: Check for next school year
 # ALGORITHM
 #
 #   1. Read the tracked year.
-#      Grep src/school_calendar.swift for the first `calendario-escolar-NN-NN`
+#      Grep Sources/SchoolCalendar/SchoolCalendar.swift for the first `calendario-escolar-NN-NN`
 #      slug and keep the `NN-NN` part -> TRACKED (e.g. "26-27").
 #      The generator is the single source of truth: nothing here is hardcoded,
 #      so re-pointing the generator at a new year also disarms this alarm.
@@ -73,10 +73,10 @@ jobs:
           LISTING="https://www.comunidad.madrid/educacion/calendario-escolar"
 
           # Single source of truth: whatever year the generator is pinned to.
-          TRACKED=$(grep -oE 'calendario-escolar-[0-9]{2}-[0-9]{2}' src/school_calendar.swift \
+          TRACKED=$(grep -oE 'calendario-escolar-[0-9]{2}-[0-9]{2}' Sources/SchoolCalendar/SchoolCalendar.swift \
                     | head -1 | grep -oE '[0-9]{2}-[0-9]{2}')
           if [ -z "$TRACKED" ]; then
-            echo "::error::Could not read the tracked school year from src/school_calendar.swift."
+            echo "::error::Could not read the tracked school year from Sources/SchoolCalendar/SchoolCalendar.swift."
             exit 1
           fi
           echo "Tracked school year: $TRACKED"
@@ -113,7 +113,7 @@ jobs:
           done
 
           if [ -n "$NEWER" ]; then
-            echo "::error title=New school calendar published::Found${NEWER} on the listing page while the generator still tracks ${TRACKED}. Archive the new page into resources/, then update archivePath and sourceURL in src/school_calendar.swift."
+            echo "::error title=New school calendar published::Found${NEWER} on the listing page while the generator still tracks ${TRACKED}. Archive the new page into resources/, then update archivePath and sourceURL in Sources/SchoolCalendar/SchoolCalendar.swift."
             exit 1
           fi
 

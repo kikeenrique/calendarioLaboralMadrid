@@ -20,18 +20,25 @@ jobs:
       - name: Set up Swift
         uses: swift-actions/setup-swift@v2
 
+      # Before generating anything: a broken parser must not publish a truncated
+      # feed to subscribers.
+      - name: Run tests
+        run: swift test
+
       # The two feeds are independent: a failure in one must not discard the
       # other's refresh, so each runs in its own step and the commit step runs
       # regardless. A failed step still fails the job, keeping the breakage
       # visible.
       - name: Build holiday feed
         id: holidays
-        run: swift src/main.swift
+        run: swift run GenerateHolidayFeed
 
+      # Reads the archived page; does no networking. See the note at the top of
+      # Sources/SchoolCalendar/SchoolCalendar.swift.
       - name: Build school calendar feed
         id: school
         if: always()
-        run: swift src/school_calendar.swift
+        run: swift run GenerateSchoolFeed
 
       - name: Commit and push
         if: always()
