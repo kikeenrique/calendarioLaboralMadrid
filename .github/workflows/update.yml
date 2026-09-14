@@ -19,6 +19,10 @@ jobs:
 
       - name: Set up Swift
         uses: swift-actions/setup-swift@v2
+        with:
+          # Pinned so CI does not silently move toolchain. The package declares
+          # swift-tools-version 6.0 and the tests use Swift Testing, which needs 6.x.
+          swift-version: "6.0"
 
       # Before generating anything: a broken parser must not publish a truncated
       # feed to subscribers.

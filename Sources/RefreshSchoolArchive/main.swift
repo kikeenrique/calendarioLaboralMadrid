@@ -77,53 +77,49 @@ func describe(_ events: [SchoolEvent]) -> String {
     return byKind.joined(separator: "\n    ")
 }
 
-let task = Task {
-    do {
-        print("Fetching \(SchoolCalendar.sourceURL)")
-        let liveHTML = try await fetchLive()
-        print("Fetched \(liveHTML.count) characters.\n")
+// Top-level `await` rather than Task + dispatchMain(), which relies on Foundation
+// re-exporting Dispatch - Apple-platform behaviour.
+do {
+    print("Fetching \(SchoolCalendar.sourceURL)")
+    let liveHTML = try await fetchLive()
+    print("Fetched \(liveHTML.count) characters.\n")
 
-        let liveEvents = try SchoolCalendar.events(from: liveHTML)
-        let archivedEvents = try SchoolCalendar.events(from: try SchoolCalendar.readArchive())
+    let liveEvents = try SchoolCalendar.events(from: liveHTML)
+    let archivedEvents = try SchoolCalendar.events(from: try SchoolCalendar.readArchive())
 
-        if liveEvents == archivedEvents {
-            print("No change: the live page parses to the same \(liveEvents.count) events as the archive.")
-            exit(0)
-        }
-
-        print("CHANGE DETECTED")
-        print("  archive: \(archivedEvents.count) events")
-        print("    \(describe(archivedEvents))")
-        print("  live:    \(liveEvents.count) events")
-        print("    \(describe(liveEvents))")
-
-        let added = liveEvents.filter { !archivedEvents.contains($0) }
-        let removed = archivedEvents.filter { !liveEvents.contains($0) }
-        if !added.isEmpty {
-            print("  added:   \(added.map { "\($0.date) \($0.summary)" }.joined(separator: ", "))")
-        }
-        if !removed.isEmpty {
-            print("  removed: \(removed.map { "\($0.date) \($0.summary)" }.joined(separator: ", "))")
-        }
-
-        guard shouldWrite else {
-            print("\nRe-run with --write to update \(SchoolCalendar.archivePath) and regenerate the feed.")
-            exit(2)
-        }
-
-        try liveHTML.write(toFile: SchoolCalendar.archivePath, atomically: true, encoding: .utf8)
-        print("\nUpdated \(SchoolCalendar.archivePath).")
-
-        let events = try SchoolCalendar.validatedEvents(from: liveHTML)
-        try SchoolCalendar.writeFeed(SchoolCalendar.buildICS(events: events))
-        print("Wrote \(SchoolCalendar.outputPath) with \(events.count) events.")
-        print("\nReview the diff and commit both files.")
+    if liveEvents == archivedEvents {
+        print("No change: the live page parses to the same \(liveEvents.count) events as the archive.")
         exit(0)
-    } catch {
-        FileHandle.standardError.write(Data("ERROR: \(error)\n".utf8))
-        exit(1)
     }
-}
 
-_ = task
-dispatchMain()
+    print("CHANGE DETECTED")
+    print("  archive: \(archivedEvents.count) events")
+    print("    \(describe(archivedEvents))")
+    print("  live:    \(liveEvents.count) events")
+    print("    \(describe(liveEvents))")
+
+    let added = liveEvents.filter { !archivedEvents.contains($0) }
+    let removed = archivedEvents.filter { !liveEvents.contains($0) }
+    if !added.isEmpty {
+        print("  added:   \(added.map { "\($0.date) \($0.summary)" }.joined(separator: ", "))")
+    }
+    if !removed.isEmpty {
+        print("  removed: \(removed.map { "\($0.date) \($0.summary)" }.joined(separator: ", "))")
+    }
+
+    guard shouldWrite else {
+        print("\nRe-run with --write to update \(SchoolCalendar.archivePath) and regenerate the feed.")
+        exit(2)
+    }
+
+    try liveHTML.write(toFile: SchoolCalendar.archivePath, atomically: true, encoding: .utf8)
+    print("\nUpdated \(SchoolCalendar.archivePath).")
+
+    let events = try SchoolCalendar.validatedEvents(from: liveHTML)
+    try SchoolCalendar.writeFeed(SchoolCalendar.buildICS(events: events))
+    print("Wrote \(SchoolCalendar.outputPath) with \(events.count) events.")
+    print("\nReview the diff and commit both files.")
+} catch {
+    FileHandle.standardError.write(Data("ERROR: \(error)\n".utf8))
+    exit(1)
+}

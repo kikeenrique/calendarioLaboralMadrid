@@ -72,12 +72,13 @@ public enum ICS {
     }
 
     public static func write(_ contents: String, to path: String) throws {
-        let directory = (path as NSString).deletingLastPathComponent
-        if !directory.isEmpty {
-            try FileManager.default.createDirectory(
-                atPath: directory, withIntermediateDirectories: true, attributes: nil
-            )
-        }
+        // URL rather than `path as NSString`: String-to-NSString bridging is an
+        // Objective-C runtime feature and is not available on Linux, where this
+        // runs in CI.
+        let directory = URL(fileURLWithPath: path).deletingLastPathComponent()
+        try FileManager.default.createDirectory(
+            at: directory, withIntermediateDirectories: true, attributes: nil
+        )
         try contents.write(toFile: path, atomically: true, encoding: .utf8)
     }
 }
