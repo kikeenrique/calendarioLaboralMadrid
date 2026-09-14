@@ -51,7 +51,7 @@ let packageID = "300082-0-calendario_laboral"
 let packageShowURL = "https://datos.madrid.es/api/3/action/package_show?id=\(packageID)"
 let keepYearsBack = 1
 let outputPath = "docs/madrid-festivos.ics"
-let userAgent = "MadridFestivosFeedBot/1.0 (+https://github.com/YOUR_GITHUB_USERNAME/madrid-holidays-feed; auto-updating .ics mirror of datos.madrid.es open data)"
+let userAgent = "MadridCalendarFeeds/1.0 (+https://github.com/kikeenrique/calendarioLaboralMadrid; auto-updating .ics mirror of datos.madrid.es open data)"
 
 func request(for urlString: String) throws -> URLRequest {
     guard let url = URL(string: urlString) else {
