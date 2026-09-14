@@ -52,26 +52,39 @@ by hand from the repository's Actions tab, or with
 `gh workflow run "Update Madrid Calendar Feeds"`. Each feed is built in its own
 step, so a failure in one does not discard the other's refresh.
 
-The school feed falls back to the archived copy in `resources/` when the live
-fetch fails: EducaMadrid answers HTTP 403 to GitHub's runners while serving the
-page normally from a residential IP. When the live fetch does succeed, the run
-compares it against the archive and warns if the published calendar has changed.
+The school feed is **not** fetched. It is generated from the archived copy of the
+source page in `resources/`, refreshed by hand once per school year.
 
-A separate [`Diagnose EducaMadrid 403`](.github/workflows/diagnose-educamadrid.yml)
-workflow probes the source from a runner. It has already been run: the block is
-address-based, and no user agent, header set, referer, cookie or HTTP version
-gets through - nor does `external.educa2.madrid.org`, EducaMadrid's documented
-host for access from outside Spain. The findings are recorded at the top of that
-workflow; re-run it only to check whether the block has lifted.
+### Why the school calendar is not fetched automatically
+
+EducaMadrid blocks access from outside Spain, and GitHub's hosted runners are not
+in Spain. Probed from a runner, every request returns a byte-identical stock
+Apache 403 - script user agent, browser user agent, no user agent, a full browser
+header set, HTTP/1.1, a same-site referer, and load-balancer cookies established
+on the root path. `external.educa2.madrid.org`, EducaMadrid's own documented host
+for access from outside Spain, returns 403 as well. So does the Internet Archive,
+whose only two captures of the page are the 403 page itself, and so do public
+fetch proxies. The rejection is address-based; nothing on the client side reaches
+it.
+
+Getting through would mean paying for a Spanish egress - a VPS, a scraping API
+with country targeting, or a cloud function in a Spanish region - to re-download a
+document that changes once a year. That is not worth the cost, the credential, or
+the extra way for the pipeline to fail quietly, so the generator does not try.
+
+The full probe matrix is recorded at the top of
+[`.github/workflows/diagnose-educamadrid.yml`](.github/workflows/diagnose-educamadrid.yml).
+That workflow is manual-only; run it if you want to check whether the block has
+lifted.
 
 ## Implementation
 
 [`src/main.swift`](src/main.swift) queries the CKAN API, selects the holiday ICS
 resources, and writes `docs/madrid-festivos.ics`.
 
-[`src/school_calendar.swift`](src/school_calendar.swift) parses the
-school-calendar page - live when reachable, otherwise the archived copy - and
-writes `docs/calendario-escolar-comunidad-madrid.ics`.
+[`src/school_calendar.swift`](src/school_calendar.swift) parses the archived
+school-calendar page and writes
+`docs/calendario-escolar-comunidad-madrid.ics`. It does no networking at all.
 
 Event UIDs are built from the date plus an internal identifier, never from the
 displayed title, so rewording a title does not force subscribers' calendar apps
@@ -79,9 +92,10 @@ to delete and recreate every event.
 
 The 2026-27 source page is preserved in
 [`resources/calendario-escolar-26-27.html`](resources/calendario-escolar-26-27.html)
-and is the fallback when the live page cannot be fetched. When the 2027-28
-calendar is published, archive the new page there and update `archivePath` and
-`sourceURL` in [`src/school_calendar.swift`](src/school_calendar.swift).
+and is the source the feed is built from. When the 2027-28 calendar is published,
+save the new page there and update `archivePath` and `sourceURL` in
+[`src/school_calendar.swift`](src/school_calendar.swift). Saving it has to be done
+from a Spanish connection, for the reason described above.
 
 You do not have to remember to check. The
 [`Check for next school year`](.github/workflows/check-next-school-year.yml)
