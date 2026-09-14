@@ -23,10 +23,33 @@ enum SchoolCalendarError: Error, CustomStringConvertible {
     }
 }
 
+/// `id` is an internal identifier that UIDs are built from; `title` is the text
+/// subscribers see. Keeping them separate means the wording can be reworded
+/// without changing any UID, so existing events are not torn down and recreated.
+struct EventKind {
+    let id: String
+    let title: String
+}
+
 struct SchoolEvent: Comparable {
     let date: String
+    let kindID: String
     let summary: String
     let description: String
+
+    init(date: String, kind: EventKind, description: String) {
+        self.date = date
+        self.kindID = kind.id
+        self.summary = kind.title
+        self.description = description
+    }
+
+    init(date: String, kindID: String, summary: String, description: String) {
+        self.date = date
+        self.kindID = kindID
+        self.summary = summary
+        self.description = description
+    }
 
     static func < (lhs: SchoolEvent, rhs: SchoolEvent) -> Bool {
         (lhs.date, lhs.summary, lhs.description) < (rhs.date, rhs.summary, rhs.description)
@@ -36,14 +59,23 @@ struct SchoolEvent: Comparable {
 let sourceURL = "https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27"
 let outputPath = "docs/calendario-escolar-comunidad-madrid.ics"
 let userAgent = "MadridCalendarFeeds/1.0 (+https://github.com/kikeenrique/calendarioLaboralMadrid)"
-let periodStartSummary = "INICIO PERIODO LECTIVO PARA LOS ALUMNOS ENSEÑANZAS CORRESPONDIENTES"
-let periodEndSummary = "FINALIZACIÓN PERIODO LECTIVO PARA LOS ALUMNOS ENSEÑANZAS CORRESPONDIENTES"
+// The source writes every label in caps and drops the accents that Spanish
+// all-caps conventionally omits. Titles here are sentence case with the
+// accents restored, which is what reads well in a calendar client.
+let periodStartKind = EventKind(
+    id: "inicio-periodo-lectivo",
+    title: "Inicio periodo lectivo para los alumnos enseñanzas correspondientes"
+)
+let periodEndKind = EventKind(
+    id: "finalizacion-periodo-lectivo",
+    title: "Finalización periodo lectivo para los alumnos enseñanzas correspondientes"
+)
 
-let colorSummaries = [
-    "#ccff99": "DIA FESTIVO O VACACIONAL",
-    "#ff9966": "OTRO DIA NO LECTIVO",
-    "#cc99ff": "EVALUACION FINAL ORDINARIA",
-    "#ffd5ea": "REPASO Y ACTIVIDADES FORMATIVAS",
+let colorKinds = [
+    "#ccff99": EventKind(id: "festivo-vacacional", title: "Día festivo o vacacional"),
+    "#ff9966": EventKind(id: "otro-dia-no-lectivo", title: "Otro día no lectivo"),
+    "#cc99ff": EventKind(id: "evaluacion-final-ordinaria", title: "Evaluación final ordinaria"),
+    "#ffd5ea": EventKind(id: "repaso-actividades-formativas", title: "Repaso y actividades formativas"),
 ]
 
 let spanishMonths = [
@@ -175,7 +207,7 @@ func calendarTableEvents(from html: String) -> [SchoolEvent] {
         let monthName = header[1].lowercased()
         for cell in regexMatches(#"<td\b([^>]*)>(.*?)</td>"#, in: table) where cell.count == 3 {
             let attributes = cell[1].lowercased()
-            guard let summary = colorSummaries.first(where: { attributes.contains($0.key) })?.value else {
+            guard let kind = colorKinds.first(where: { attributes.contains($0.key) })?.value else {
                 continue
             }
 
@@ -190,7 +222,7 @@ func calendarTableEvents(from html: String) -> [SchoolEvent] {
                 continue
             }
 
-            events.append(SchoolEvent(date: date, summary: summary, description: "Fuente oficial: \(sourceURL)"))
+            events.append(SchoolEvent(date: date, kind: kind, description: "Fuente oficial: \(sourceURL)"))
         }
     }
 
@@ -209,7 +241,7 @@ func listAfter(heading: String, in html: String) -> String? {
     return String(remainder[listStart.lowerBound..<listEnd.upperBound])
 }
 
-func periodEvents(heading: String, summary: String, from html: String) -> [SchoolEvent] {
+func periodEvents(heading: String, kind: EventKind, from html: String) -> [SchoolEvent] {
     guard let list = listAfter(heading: heading, in: html) else {
         return []
     }
@@ -224,7 +256,7 @@ func periodEvents(heading: String, summary: String, from html: String) -> [Schoo
               let date = dateString(day: day, monthName: dateMatch[2], year: year) else {
             return nil
         }
-        return SchoolEvent(date: date, summary: summary, description: plainText(from: item))
+        return SchoolEvent(date: date, kind: kind, description: plainText(from: item))
     }
 }
 
@@ -232,14 +264,19 @@ func mergedPeriodEvents(_ events: [SchoolEvent]) -> [SchoolEvent] {
     Dictionary(grouping: events, by: { "\($0.date)|\($0.summary)" }).values.map { matchingEvents in
         let first = matchingEvents[0]
         let descriptions = matchingEvents.map(\.description).sorted().joined(separator: "\n")
-        return SchoolEvent(date: first.date, summary: first.summary, description: descriptions)
+        return SchoolEvent(
+            date: first.date,
+            kindID: first.kindID,
+            summary: first.summary,
+            description: descriptions
+        )
     }
 }
 
 func sourceEvents(from html: String) throws -> [SchoolEvent] {
     let periodBoundaryEvents = mergedPeriodEvents(
-        periodEvents(heading: "INICIO", summary: periodStartSummary, from: html)
-            + periodEvents(heading: "FINALIZ", summary: periodEndSummary, from: html)
+        periodEvents(heading: "INICIO", kind: periodStartKind, from: html)
+            + periodEvents(heading: "FINALIZ", kind: periodEndKind, from: html)
     )
     let events = calendarTableEvents(from: html) + periodBoundaryEvents
 
@@ -298,7 +335,7 @@ func buildICS(events: [SchoolEvent]) -> String {
         }
         lines.append(contentsOf: [
             "BEGIN:VEVENT",
-            "UID:\(event.date)-\(stableDigest(event.summary))-calendario-escolar-comunidad-madrid",
+            "UID:\(event.date)-\(stableDigest(event.kindID))-calendario-escolar-comunidad-madrid",
             "DTSTAMP:\(stamp)",
             "DTSTART;VALUE=DATE:\(event.date)",
             "DTEND;VALUE=DATE:\(formatter.string(from: end))",
