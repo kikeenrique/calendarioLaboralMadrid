@@ -5,26 +5,45 @@ on:
     - cron: "0 0 1,15 * *"
   workflow_dispatch:
 
+concurrency:
+  group: update-feeds
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up Swift
         uses: swift-actions/setup-swift@v2
 
-      - name: Build calendar feeds
-        run: |
-          swift src/main.swift
-          swift src/school_calendar.swift
+      # The two feeds are independent: a failure in one must not discard the
+      # other's refresh, so each runs in its own step and the commit step runs
+      # regardless. A failed step still fails the job, keeping the breakage
+      # visible.
+      - name: Build holiday feed
+        id: holidays
+        run: swift src/main.swift
 
-      - name: Commit and Push
+      - name: Build school calendar feed
+        id: school
+        if: always()
+        run: swift src/school_calendar.swift
+
+      - name: Commit and push
+        if: always()
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/madrid-festivos.ics docs/calendario-escolar-comunidad-madrid.ics
           git diff --cached --quiet || git commit -m "Auto-update calendar feeds"
           git push
+
+      - name: Report generator outcomes
+        if: always()
+        run: |
+          echo "holiday feed: ${{ steps.holidays.outcome }}"
+          echo "school feed:  ${{ steps.school.outcome }}"

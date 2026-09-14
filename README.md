@@ -49,7 +49,8 @@ escolar 26-27](https://www.educa2.madrid.org/web/calendario-escolar-de-la-comuni
 The GitHub Actions workflow runs on the 1st and 15th of every month, fetches the
 currently published sources, and refreshes both calendars. It can also be started
 by hand from the repository's Actions tab, or with
-`gh workflow run "Update Madrid Calendar Feeds"`.
+`gh workflow run "Update Madrid Calendar Feeds"`. Each feed is built in its own
+step, so a failure in one does not discard the other's refresh.
 
 The school feed falls back to the archived copy in `resources/` when the live
 fetch fails: EducaMadrid answers HTTP 403 to GitHub's runners while serving the
