@@ -1,9 +1,17 @@
 name: Diagnose EducaMadrid 403
 
-# Manual only. EducaMadrid answers 403 to GitHub runners but 200 from a
+# Manual only. EducaMadrid answers 403 to GitHub runners but 200 from a Spanish
 # residential IP. This probes the source from a runner to find out which layer
 # is rejecting us: the host, the path, the client headers, or the IP itself.
 # Keep the probe count low - this hits a public government site.
+#
+# The first run established that the 403 is identical for every User-Agent,
+# header set and HTTP version, with a stock Apache body and no WAF branding -
+# so it is address-based, not client-based. EducaMadrid documents that it blocks
+# access from outside Spain and offers external.educa2.madrid.org for users
+# abroad, which matches: the runner was in Phoenix, US. That host serves
+# byte-identical calendar tables when checked from Spain; this workflow now
+# probes it from a runner to confirm it is reachable from outside.
 
 on:
   workflow_dispatch:
@@ -19,7 +27,9 @@ jobs:
 
       - name: Probe the source
         run: |
-          URL="https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27"
+          PATH_SUFFIX="/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27"
+          URL="https://www.educa2.madrid.org$PATH_SUFFIX"
+          EXT="https://external.educa2.madrid.org$PATH_SUFFIX"
           ROOT="https://www.educa2.madrid.org/"
           SCRIPT_UA="MadridCalendarFeeds/1.0 (+https://github.com/kikeenrique/calendarioLaboralMadrid)"
           BROWSER_UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
@@ -60,13 +70,35 @@ jobs:
           # HTTP/1.1 instead of HTTP/2, in case the block is protocol-level.
           probe "target path, http1.1"        --http1.1 -A "$BROWSER_UA" "$URL"
 
+          # Does a same-site Referer change anything? Some Apache configs allow
+          # requests that look like in-site navigation.
+          probe "target path, same-site Referer" \
+            -A "$BROWSER_UA" -H "Referer: https://www.educa2.madrid.org/educamadrid/" "$URL"
+
+          # The 403 sets a TL_<ip>_COOKIE load-balancer cookie. Try establishing
+          # it on the root (which returns 301, not 403) and reusing it.
+          curl -s -o /dev/null -c cookies.txt --max-time 30 -A "$BROWSER_UA" "$ROOT" || true
+          echo "--- cookie jar from root ---"; cat cookies.txt || true
+          probe "target path, cookies from root" -A "$BROWSER_UA" -b cookies.txt "$URL"
+
+          # EducaMadrid publishes external.educa2.madrid.org for access from
+          # outside Spain, which is exactly what a US-hosted runner is. If the
+          # block is geographic, this is the supported way through.
+          probe "EXTERNAL host, script UA"    -L -A "$SCRIPT_UA" "$EXT"
+
       - name: Interpretation hints
         if: always()
         run: |
-          echo "root 200 + target 403        -> path/WAF rule, not the IP"
-          echo "both 403                     -> host-level IP or geo block"
+          echo "root 200/301 + target 403     -> path rule, not the whole host"
+          echo "both 403                      -> host-level IP or geo block"
           echo "browser UA 200, script UA 403 -> User-Agent filtering"
-          echo "all 403 regardless of headers -> IP reputation or geo; needs a"
-          echo "                                 different egress or the archive"
-          echo "check response headers above for a WAF vendor (Akamai, Incapsula,"
-          echo "Cloudflare) and any Reference/Support ID in the body"
+          echo "Referer 200, others 403       -> same-site navigation required"
+          echo "cookies 200, others 403       -> load-balancer session required"
+          echo "EXTERNAL 200, www 403         -> geographic block; switch the"
+          echo "                                 generator to the external host"
+          echo "all 403 regardless            -> IP reputation; needs a different"
+          echo "                                 egress or the archived copy"
+          echo ""
+          echo "Known: EducaMadrid blocks access from outside Spain and publishes"
+          echo "external.educa2.madrid.org for that case. GitHub runners are not"
+          echo "in Spain, so the EXTERNAL probe is the one that matters most."
