@@ -57,6 +57,10 @@ fetch fails: EducaMadrid answers HTTP 403 to GitHub's runners while serving the
 page normally from a residential IP. When the live fetch does succeed, the run
 compares it against the archive and warns if the published calendar has changed.
 
+A separate [`Diagnose EducaMadrid 403`](.github/workflows/diagnose-educamadrid.yml)
+workflow probes the source from a runner to identify what is rejecting the
+request. Run it by hand from the Actions tab.
+
 ## Implementation
 
 [`src/main.swift`](src/main.swift) queries the CKAN API, selects the holiday ICS

@@ -1,0 +1,72 @@
+name: Diagnose EducaMadrid 403
+
+# Manual only. EducaMadrid answers 403 to GitHub runners but 200 from a
+# residential IP. This probes the source from a runner to find out which layer
+# is rejecting us: the host, the path, the client headers, or the IP itself.
+# Keep the probe count low - this hits a public government site.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Where is this runner
+        run: |
+          echo "--- public IP and geo ---"
+          curl -s --max-time 20 https://ipinfo.io/json || echo "(ipinfo unavailable)"
+
+      - name: Probe the source
+        run: |
+          URL="https://www.educa2.madrid.org/web/calendario-escolar-de-la-comunidad-de-madrid/calendario-escolar-26-27"
+          ROOT="https://www.educa2.madrid.org/"
+          SCRIPT_UA="MadridCalendarFeeds/1.0 (+https://github.com/kikeenrique/calendarioLaboralMadrid)"
+          BROWSER_UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+
+          probe() {
+            echo ""
+            echo "=============================================="
+            echo "PROBE: $1"
+            echo "=============================================="
+            shift
+            # %{http_code} tells us the verdict; -D - dumps response headers,
+            # which is where a WAF usually identifies itself.
+            curl -s -o /tmp/body.html -D /tmp/headers.txt \
+                 -w "HTTP %{http_code}  |  %{size_download} bytes  |  %{time_total}s\n" \
+                 --max-time 30 "$@" || echo "(curl exit $?)"
+            echo "--- response headers ---"
+            cat /tmp/headers.txt || true
+            echo "--- first 25 lines of body ---"
+            head -25 /tmp/body.html || true
+          }
+
+          # Is the whole host blocked, or just this path?
+          probe "root path, script UA"        -A "$SCRIPT_UA" "$ROOT"
+          probe "target path, script UA"      -A "$SCRIPT_UA" "$URL"
+
+          # Does the User-Agent alone change the verdict?
+          probe "target path, browser UA"     -A "$BROWSER_UA" "$URL"
+          probe "target path, no UA"          -H "User-Agent:" "$URL"
+
+          # Does a full browser-like header set get through?
+          probe "target path, full browser headers" \
+            -A "$BROWSER_UA" \
+            -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
+            -H "Accept-Language: es-ES,es;q=0.9,en;q=0.8" \
+            -H "Upgrade-Insecure-Requests: 1" \
+            "$URL"
+
+          # HTTP/1.1 instead of HTTP/2, in case the block is protocol-level.
+          probe "target path, http1.1"        --http1.1 -A "$BROWSER_UA" "$URL"
+
+      - name: Interpretation hints
+        if: always()
+        run: |
+          echo "root 200 + target 403        -> path/WAF rule, not the IP"
+          echo "both 403                     -> host-level IP or geo block"
+          echo "browser UA 200, script UA 403 -> User-Agent filtering"
+          echo "all 403 regardless of headers -> IP reputation or geo; needs a"
+          echo "                                 different egress or the archive"
+          echo "check response headers above for a WAF vendor (Akamai, Incapsula,"
+          echo "Cloudflare) and any Reference/Support ID in the body"
