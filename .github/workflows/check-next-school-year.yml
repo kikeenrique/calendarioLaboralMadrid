@@ -113,7 +113,7 @@ jobs:
           done
 
           if [ -n "$NEWER" ]; then
-            echo "::error title=New school calendar published::Found${NEWER} on the listing page while the generator still tracks ${TRACKED}. Archive the new page into resources/, then update archivePath and sourceURL in Sources/SchoolCalendar/SchoolCalendar.swift."
+            echo "::error title=New school calendar published::Found${NEWER} on the listing page while the generator still tracks ${TRACKED}. Follow the checklist in resources/README.md: archive the new page, then update archivePath and sourceURL in Sources/SchoolCalendar/SchoolCalendar.swift. swift test will then fail until docs/index.html and the 403 diagnostic are updated to match."
             exit 1
           fi
 

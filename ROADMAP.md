@@ -59,6 +59,14 @@ State of the project and what is left. See [README](README.md) for how it works.
   de Madrid listing page monthly and fails on purpose when a newer calendar
   appears. It reads the tracked year from the generator, so re-pointing the
   generator disarms it.
+- **The pinned year is consistency-checked.** The year appeared in several files
+  while only `Sources/SchoolCalendar` was authoritative, so updating the
+  generator and forgetting `docs/index.html` would have left the site
+  advertising the wrong year with nothing to catch it. Tests now assert that
+  `docs/index.html` and the 403 diagnostic match the tracked year, that the
+  archive the generator points at exists, and that the alarm's grep path is
+  still valid. Verified by simulating the drift. Prose docs that legitimately
+  mention future years are excluded and stay manual.
 
 ### The EducaMadrid 403, closed
 
@@ -76,19 +84,11 @@ State of the project and what is left. See [README](README.md) for how it works.
 
 ## Pending
 
-### Worth doing
-
-- **The school year is hardcoded in several files.** `Sources/SchoolCalendar`
-  (the one that matters), `docs/index.html`, `README.md`, `resources/README.md`,
-  `diagnose-educamadrid.yml`, `check-next-school-year.yml` - and this file. The
-  alarm reads only the first, so the rest can drift silently after a rollover.
-  `grep -rl '26-27'` finds them all. Options: have the alarm also assert that
-  `docs/index.html` matches the tracked year, or generate the year-bearing line
-  of `index.html`.
-- **`docs/index.html` duplicates the README** and is maintained by hand. Lowest
-  effort fix is the alarm check above; the thorough fix is generating it.
-
 ### Small
+
+- **`docs/index.html` duplicates prose from the README** and is maintained by
+  hand. The year is now guarded by tests, so what is left is ordinary
+  duplication, not a correctness risk.
 
 - **Period label wording.** "Inicio periodo lectivo para los alumnos enseñanzas
   correspondientes" is missing prepositions. It is the source's own phrasing, so

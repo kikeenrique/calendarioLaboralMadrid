@@ -84,7 +84,7 @@ lifted.
 A Swift package. Run everything from the repository root:
 
 ```
-swift test                          # 30 tests, no network
+swift test                          # 35 tests, no network
 swift run GenerateHolidayFeed       # refresh docs/madrid-festivos.ics
 swift run GenerateSchoolFeed        # refresh the school feed from the archive
 swift run RefreshSchoolArchive      # check the live page (Spain only, see below)
@@ -135,7 +135,10 @@ and is the source the feed is built from. When the 2027-28 calendar is published
 save the new page there and update `archivePath` and `sourceURL` in
 [`Sources/SchoolCalendar/SchoolCalendar.swift`](Sources/SchoolCalendar/SchoolCalendar.swift).
 Saving it has to be done from a Spanish connection, for the reason described
-above - `swift run RefreshSchoolArchive --write` does it for you.
+above - `swift run RefreshSchoolArchive --write` does it for you. The full
+checklist is in [`resources/README.md`](resources/README.md); `swift test` then
+fails until `docs/index.html` and the 403 diagnostic name the same year, so the
+year cannot drift out of step in the places that matter.
 
 You do not have to remember to check. The
 [`Check for next school year`](.github/workflows/check-next-school-year.yml)
