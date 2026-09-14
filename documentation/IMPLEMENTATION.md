@@ -65,11 +65,18 @@ It runs `swift test` before generating anything, so a broken parser cannot
 publish a truncated feed. Each feed is then built in its own step, so a failure
 in one does not discard the other's refresh, and the commit step runs either way.
 
-Swift comes preinstalled on the runner image; there is no setup action. The
-toolchain therefore follows the runner image rather than a pin, which is why the
-tests run first and the version is logged on every run. Local development uses
-whatever Xcode provides, currently newer than the runner - if that difference
-ever matters, CI fails and the failure is reviewed.
+The job runs in the official `swift:6.3` container rather than using a setup
+action. That pins the toolchain, keeps the build cache valid across runs, and
+avoids `swift-actions/setup-swift`, which declares `node20` in every released
+version including the v3 beta - a runtime GitHub removes on 2026-09-23.
+
+`.build` is cached with `actions/cache`, keyed on `Package.swift`, `Sources/**`
+and `Tests/**`, with a `spm-swift6.3-` prefix as a restore key so an older cache
+can seed an incremental rebuild. There are no external dependencies and no
+`Package.resolved`, so the cache holds compiled output only.
+
+Local development uses whatever Xcode provides, currently newer than the
+container. If that difference ever matters, CI fails and the failure is reviewed.
 
 Two other workflows exist, both documented in
 [`SOURCES.md`](SOURCES.md): the next-school-year alarm and the EducaMadrid 403

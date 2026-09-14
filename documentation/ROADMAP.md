@@ -57,8 +57,9 @@ State of the project and what is left. See
   happened on the first real run.
 - **`actions/checkout` v4 → v7.** `swift-actions/setup-swift` was removed
   entirely: every released version including the v3 beta still declares `node20`,
-  which GitHub removes from runners on 2026-09-23. Swift is preinstalled on the
-  runner image, so CI uses that and logs the version on each run.
+  which GitHub removes from runners on 2026-09-23. The job now runs in the
+  official `swift:6.3` container, which pins the toolchain instead of floating
+  with the runner image, and caches `.build` with `actions/cache`.
 - **Next-school-year alarm.** `check-next-school-year.yml` watches the Comunidad
   de Madrid listing page monthly and fails on purpose when a newer calendar
   appears. It reads the tracked year from the generator, so re-pointing the
