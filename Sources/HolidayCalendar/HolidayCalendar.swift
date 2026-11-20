@@ -151,19 +151,36 @@ public enum HolidayCalendar {
 
     // MARK: - Fetching
 
+    /// How long one request may wait for data from datos.madrid.es.
+    ///
+    /// The portal can be very slow: in November 2026 every ICS download from a
+    /// GitHub runner timed out at 60 s (the old effective limit - the request
+    /// asked for 30 s, but URLSession.shared on Linux applied its own 60 s), and
+    /// a desktop `curl` of the CKAN API took over two minutes. The generator
+    /// runs twice a month unattended, so waiting longer costs nothing.
+    static let requestTimeout: TimeInterval = 180
+
+    /// A session whose own limits do not undercut `requestTimeout`.
+    static let session: URLSession = {
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = requestTimeout
+        configuration.timeoutIntervalForResource = requestTimeout * 2
+        return URLSession(configuration: configuration)
+    }()
+
     static func request(for urlString: String) throws -> URLRequest {
         guard let url = URL(string: urlString) else {
             throw HolidayFetchError.invalidURL(urlString)
         }
 
-        var request = URLRequest(url: url, timeoutInterval: 30)
+        var request = URLRequest(url: url, timeoutInterval: requestTimeout)
         request.setValue(userAgent, forHTTPHeaderField: "User-Agent")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         return request
     }
 
     static func fetchData(from urlString: String) async throws -> Data {
-        let (data, response) = try await URLSession.shared.data(for: try request(for: urlString))
+        let (data, response) = try await session.data(for: try request(for: urlString))
 
         if let httpResponse = response as? HTTPURLResponse,
            !(200..<300).contains(httpResponse.statusCode) {
